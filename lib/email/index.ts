@@ -39,7 +39,7 @@ async function sendMail({ to, subject, body }: SendMailParams): Promise<void> {
   await transporter.sendMail({
     from: {
       address: process.env.OWNER_EMAIL,
-      name: "Tim Feeley",
+      name: process.env.OWNER_NAME,
     },
     to,
     subject,
