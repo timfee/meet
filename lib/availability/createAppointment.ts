@@ -6,9 +6,6 @@ function buildDescription(location: string) {
   if (!process.env.OWNER_PHONE_NUMBER) {
     throw new Error(`OWNER_PHONE_NUMBER is not set.`)
   }
-  if (!process.env.OWNER_SIGNOFF) {
-    throw new Error(`OWNER_SIGNOFF is not set.`)
-  }
 
   const baseDescription = `Hello, thanks for setting up time!\n\n`
   const phoneDetails = `My phone number is ${process.env.OWNER_PHONE_NUMBER} but please let me know if you’d rather I call you.`

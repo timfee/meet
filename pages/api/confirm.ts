@@ -71,9 +71,13 @@ export default async function handler(
 
   const details = await response.json()
 
+  const htmlLink = details.htmlLink
+  const regex = /eid=([^&]+)/
+  const match = htmlLink.match(regex)
+
   // If we have a link to the event, take us there.
-  if (details.htmlLink) {
-    res.redirect(`/booked?url=${encodeURIComponent(details.htmlLink)}`)
+  if (match && match[1]) {
+    res.redirect(`/booked?url=${encodeURIComponent(match[1])}`)
 
     return
   }
