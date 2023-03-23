@@ -13,7 +13,9 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Meet with {process.env.OWNER_NAME ?? "me"}</title>
+        <title>{`Meet with ${process.env.NEXT_PUBLIC_OWNER_NAME ?? "me"}`}</title>
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
       </Head>
       <style jsx global>{`
         html {
