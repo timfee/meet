@@ -14,7 +14,7 @@ export default function Booked() {
       <p className="mt-6 text-xl text-gray-800 font-medium">
         It’s now on your calendar and an invite has been sent to them.{" "}
         <a
-          href={query.url}
+          href={"https://www.google.com/calendar/event?eid=" + query.url}
           target="_blank"
           rel="noreferrer"
           className="text-blue-700 underline">
