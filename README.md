@@ -30,3 +30,5 @@ Some technical notes:
 * Probably has some over-engineered bits that feel nice, like `lru-cache` limiting on API endpoints, a more intuitive timezone selection piece, and formatted emails. 
 
 I welcome feedback and suggestions; and have fun!
+
+See related post at https://dev.to/timfee/build-and-host-your-own-calendy-like-scheduling-page-using-nextjs-and-google-apis-5ack
