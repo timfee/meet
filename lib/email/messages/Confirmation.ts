@@ -15,8 +15,7 @@ export default function ConfirmationEmail({
     `Just confirming that your request for <b>${dateSummary}</b> has been received. 
 I'll review it as soon as I can and get back to you with a confirmation.`,
     `<br>`,
-    `Thanks,`,
-    `—Tim`,
+    `Thanks!`,
   ]
     .map((line) => `${LINE_PREFIX}${line}${LINE_SUFFIX}`)
     .join("")
