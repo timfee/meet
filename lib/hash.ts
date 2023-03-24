@@ -5,7 +5,7 @@ import { createHash } from "crypto"
  *
  * This function takes a data string and generates a hash using the
  * SHA-256 algorithm. The hash is created by combining the input data
- * with the value of the GOOGLE_CALENDAR_CLIENT_SECRET environment variable.
+ * with the value of the GOOGLE_OAUTH_SECRET environment variable.
  *
  * @function
  * @param {string} data - The input data string for which to generate the hash.
@@ -13,6 +13,6 @@ import { createHash } from "crypto"
  */
 export default function getHash(data: string): string {
   return createHash("sha256")
-    .update(data + (process.env.GOOGLE_CALENDAR_CLIENT_SECRET ?? ""))
+    .update(data + (process.env.GOOGLE_OAUTH_SECRET ?? ""))
     .digest("hex")
 }

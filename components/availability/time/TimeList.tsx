@@ -1,4 +1,4 @@
-import Time from "./Time"
+import Time from "./TimeButton"
 import type { DateTimeInterval } from "@/lib/types"
 
 type TimeListProps = {
