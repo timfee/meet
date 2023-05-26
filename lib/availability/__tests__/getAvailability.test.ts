@@ -15,30 +15,35 @@ describe("getAvailability", () => {
     )
   })
 
+  //getAvailability() uses now() to compare against potential slots
+  //so we need to make sure that the potential slots are in the future
+  
+  const nextYear = new Date().getFullYear() + 1
+
   it("returns available slots correctly", () => {
     const potential: DateTimeInterval[] = [
       {
-        start: new Date("2023-04-01T08:00:00.000Z"),
-        end: new Date("2023-04-01T09:00:00.000Z"),
+        start: new Date(`${nextYear}-10-28T08:00:00.000Z`),
+        end: new Date(`${nextYear}-10-28T09:00:00.000Z`),
       },
       {
-        start: new Date("2023-04-01T10:00:00.000Z"),
-        end: new Date("2023-04-01T11:00:00.000Z"),
+        start: new Date(`${nextYear}-10-28T10:00:00.000Z`),
+        end: new Date(`${nextYear}-10-28T11:00:00.000Z`),
       },
       {
-        start: new Date("2023-04-01T12:00:00.000Z"),
-        end: new Date("2023-04-01T13:00:00.000Z"),
+        start: new Date(`${nextYear}-10-28T12:00:00.000Z`),
+        end: new Date(`${nextYear}-10-28T13:00:00.000Z`),
       },
     ]
 
     const busy: DateTimeInterval[] = [
       {
-        start: new Date("2023-04-01T08:30:00.000Z"),
-        end: new Date("2023-04-01T09:30:00.000Z"),
+        start: new Date(`${nextYear}-10-28T08:30:00.000Z`),
+        end: new Date(`${nextYear}-10-28T09:30:00.000Z`),
       },
       {
-        start: new Date("2023-04-01T11:30:00.000Z"),
-        end: new Date("2023-04-01T12:30:00.000Z"),
+        start: new Date(`${nextYear}-10-28T11:30:00.000Z`),
+        end: new Date(`${nextYear}-10-28T12:30:00.000Z`),
       },
     ]
 
@@ -46,23 +51,23 @@ describe("getAvailability", () => {
 
     expect(availableSlots).toHaveLength(1)
     expect(availableSlots[0]).toStrictEqual({
-      start: new Date("2023-04-01T10:00:00.000Z"),
-      end: new Date("2023-04-01T11:00:00.000Z"),
+      start: new Date(`${nextYear}-10-28T10:00:00.000Z`),
+      end: new Date(`${nextYear}-10-28T11:00:00.000Z`),
     })
   })
 
   it("respects padding when determining availability", () => {
     const potential: DateTimeInterval[] = [
       {
-        start: new Date("2023-04-01T08:00:00.000Z"),
-        end: new Date("2023-04-01T09:00:00.000Z"),
+        start: new Date(`${nextYear}-10-28T08:00:00.000Z`),
+        end: new Date(`${nextYear}-10-28T09:00:00.000Z`),
       },
     ]
 
     const busy: DateTimeInterval[] = [
       {
-        start: new Date("2023-04-01T09:00:00.000Z"),
-        end: new Date("2023-04-01T10:00:00.000Z"),
+        start: new Date(`${nextYear}-10-28T09:00:00.000Z`),
+        end: new Date(`${nextYear}-10-28T10:00:00.000Z`),
       },
     ]
 
