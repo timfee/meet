@@ -3,7 +3,7 @@ import type { StringInterval, DateTimeInterval } from "../types"
 import { LOCAL_DATE_OPTIONS, LOCAL_TIME_OPTIONS } from "@/config"
 
 /**
- * Takes an array of {@link StringInveral} objects and converts them to
+ * Takes an array of {@link StringInterval} objects and converts them to
  * {@link DateTimeInterval} objects.
  *
  * @param {StringInterval[]} slots - StringInterval[]
