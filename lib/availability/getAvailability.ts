@@ -1,7 +1,7 @@
 import { add, areIntervalsOverlapping, sub } from "date-fns"
 
 import type { DateTimeInterval } from "../types"
-import { SLOT_PADDING } from "../../config"
+import { SLOT_PADDING, LEAD_TIME } from "../../config"
 
 /**
  * Takes an array of potential slots and an array of busy slots and returns
@@ -20,10 +20,12 @@ export default function getAvailability({
   potential: potentialParam,
   busy,
   padding = SLOT_PADDING,
+  leadTime = LEAD_TIME,
 }: {
   potential?: DateTimeInterval[]
   busy?: DateTimeInterval[]
-  padding?: number
+  padding?: number,
+  leadTime?: number
 }): DateTimeInterval[] {
   // Our final array of available slots
   const openSlots: DateTimeInterval[] = []
@@ -31,10 +33,22 @@ export default function getAvailability({
   if (potentialParam === undefined || busy === undefined) {
     return []
   }
+
+  // Create a DateTimeInterval that starts now and ends leadTime minutes from now
   const now = new Date()
+
+  if (leadTime > 0) {
+    const leadTimeBuffer = {
+    start: now, end: add(now, {minutes: leadTime})
+  }
+
+  //add leadTimeBuffer to front of busy array
+  busy?.unshift(leadTimeBuffer)
+  }
+
   const potential = potentialParam.filter((slot) => {
     return slot.start > now
-  })
+  }) // filter out slots that are in the past
 
   // Make a deep copy of the potential array
   const remainingSlots = [...potential]
@@ -45,9 +59,15 @@ export default function getAvailability({
     // Check if the free slot overlaps with any busy slot
     let isFree = true
     for (let j = 0; j < busy.length; j++) {
+
       const busySlot = busy[j]
+      // apply padding to busySlot .start and .end times eg:
+      //   appointment is 10:00am to 11:00am,  padding is 30min
+      //   10:00am - 30min = 09:30am (now includes front padding)
+      //   11:00am + 30min = 11:30am (now includes back padding)
       const busyStart = sub(busySlot.start, { minutes: padding })
       const busyEnd = add(busySlot.end, { minutes: padding })
+
       if (
         areIntervalsOverlapping(freeSlot, { start: busyStart, end: busyEnd })
       ) {
