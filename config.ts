@@ -1,21 +1,21 @@
 import type { AvailabilitySlotsMap } from "./lib/types"
 
-export const ALLOWED_DURATIONS = [15, 30, 60]
+export const ALLOWED_DURATIONS = [15, 30, 60, 90, 120, 150]
 
-export const DEFAULT_DURATION = 30
+export const DEFAULT_DURATION = 60
 
 export const CALENDARS_TO_CHECK = ["primary"]
 export const SLOT_PADDING = 0
 export const OWNER_TIMEZONE = "America/Los_Angeles"
-export const LEAD_TIME = 0
+export const LEAD_TIME = 15
 
 const DEFAULT_WORKDAY = [
   {
     start: {
-      hour: 9,
+      hour: 10,
     },
     end: {
-      hour: 22,
+      hour: 23,
     },
   },
 ]
