@@ -27,7 +27,6 @@ export default function AvailabilityPicker({ slots }: AvailabilityPickerProps) {
       // Gives us the same YYYY-MM-DD format as Day.toString()
       const date = format(slot.start, "yyyy-MM-dd", { timeZone })
 
-      console.log(slot.start, utcToZonedTime(slot.start, timeZone))
       if (!acc[date]) {
         acc[date] = []
       }
@@ -40,7 +39,7 @@ export default function AvailabilityPicker({ slots }: AvailabilityPickerProps) {
     },
     {}
   )
-  console.log(availabilityByDate)
+
   const availability = selectedDate
     ? availabilityByDate[selectedDate.toString()]
     : []
