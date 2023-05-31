@@ -6,6 +6,7 @@ import DurationPicker from "./controls/DurationPicker"
 import TimezonePicker from "./controls/TimezonePicker"
 import { useProvider } from "@/context/AvailabilityContext"
 import type { DateTimeInterval } from "@/lib/types"
+import format from "date-fns-tz/format"
 
 // Load these dynamically, without SSR, to avoid hydration issues
 // that arise with timezone differences.
@@ -24,9 +25,9 @@ export default function AvailabilityPicker({ slots }: AvailabilityPickerProps) {
   const availabilityByDate = slots.reduce<Record<string, DateTimeInterval[]>>(
     (acc, slot) => {
       // Gives us the same YYYY-MM-DD format as Day.toString()
-      const date = utcToZonedTime(slot.start, timeZone)
-        .toISOString()
-        .split("T")[0]
+      const date = format(slot.start, "yyyy-MM-dd", { timeZone })
+
+      console.log(slot.start, utcToZonedTime(slot.start, timeZone))
       if (!acc[date]) {
         acc[date] = []
       }
@@ -39,7 +40,7 @@ export default function AvailabilityPicker({ slots }: AvailabilityPickerProps) {
     },
     {}
   )
-
+  console.log(availabilityByDate)
   const availability = selectedDate
     ? availabilityByDate[selectedDate.toString()]
     : []

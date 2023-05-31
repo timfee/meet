@@ -14,7 +14,7 @@ const DEFAULT_WORKDAY = [
       hour: 9,
     },
     end: {
-      hour: 17,
+      hour: 22,
     },
   },
 ]
