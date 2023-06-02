@@ -1,6 +1,6 @@
 import type { AvailabilitySlotsMap } from "./lib/types"
 
-export const ALLOWED_DURATIONS = [15, 30, 60, 90, 120, 150]
+export const ALLOWED_DURATIONS = [60, 90, 120, 150]
 
 export const DEFAULT_DURATION = 60
 
