@@ -4,7 +4,7 @@ export const ALLOWED_DURATIONS = [15, 30, 60, 90, 120, 150]
 
 export const DEFAULT_DURATION = 60
 
-export const CALENDARS_TO_CHECK = ["primary"]
+export const CALENDARS_TO_CHECK = ["primary", "trillium@hatsfabulous.com"]
 export const SLOT_PADDING = 0
 export const OWNER_TIMEZONE = "America/Los_Angeles"
 export const LEAD_TIME = 15
@@ -21,11 +21,13 @@ const DEFAULT_WORKDAY = [
 ]
 
 export const OWNER_AVAILABILITY: AvailabilitySlotsMap = {
+  0: DEFAULT_WORKDAY,
   1: DEFAULT_WORKDAY,
   2: DEFAULT_WORKDAY,
   3: DEFAULT_WORKDAY,
   4: DEFAULT_WORKDAY,
   5: DEFAULT_WORKDAY,
+  6: DEFAULT_WORKDAY,
 }
 
 export const LOCAL_DATE_OPTIONS: Intl.DateTimeFormatOptions = {
