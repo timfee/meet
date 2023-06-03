@@ -13,7 +13,7 @@ export default function Calendar({
   offers: Record<string, DateTimeInterval[]>
   maximumAvailability: number
 }) {
-  const weekdays = ["Su", "M", "Tu", "W", "Th", "F", "Sa"]
+  const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
   const {
     state: { start, end, timeZone },
   } = useProvider()
@@ -60,7 +60,7 @@ export default function Calendar({
           className="justify-center text-slate-500 flex"
           role="columnheader"
           aria-label={weekday}>
-          {weekday.charAt(0)}
+          {weekday}
         </div>
       ))}
       {days.map((day) => {
