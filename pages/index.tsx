@@ -22,6 +22,7 @@ import {
   mapStringsToDates,
 } from "@/lib/availability/helpers"
 import Day from "@/lib/day"
+import localeDayString from "@/lib/locale"
 
 export type PageProps = InferGetServerSidePropsType<typeof getServerSideProps>
 
@@ -61,9 +62,12 @@ function Page({
   // with some availability.
   useEffect(() => {
     if (!selectedDate && slots.length > 0) {
+      const date: Date = slots[0].start;
+      const dateString: string = localeDayString(date)
+
       dispatch({
         type: "SET_SELECTED_DATE",
-        payload: Day.dayFromDate(slots[0].start),
+        payload: Day.dayFromString(dateString), //payload from date respecting timezone
       })
     }
     // Run once, on initial render.
