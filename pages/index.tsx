@@ -52,8 +52,8 @@ function Page({
 
   const slots = offers.filter((slot) => {
     return (
-      slot.start >= startDay.toInterval().start &&
-      slot.end <= endDay.toInterval().end
+      slot.start >= startDay.toInterval("Etc/GMT").start &&
+      slot.end <= endDay.toInterval("Etc/GMT").end
     )
   })
 
