@@ -54,7 +54,7 @@ module.exports = {
           900: "#661e23",
         },
         primary: colors.green,
-        secondary: colors.orange,
+        secondary: colors.teal,
         gray: colors.neutral,
       },
       fontFamily: {
