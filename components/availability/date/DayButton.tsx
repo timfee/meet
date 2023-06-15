@@ -42,14 +42,14 @@ export default function DayButton({
       type="button"
       className={twMerge(
         clsx(
-          "p-4 transition-all flex flex-col items-center outline-accent-600 relative",
+          "p-4 transition-all flex flex-col items-center outline-secondary-600 relative",
           props.className,
           {
-            "font-semibold bg-slate-100  text-slate-800 hocus:border-accent-500 hocus:shadow-sm hocus:shadow-accent-100 hocus:-mt-0.5 hocus:z-10 hocus:mb-0.5 border border-transparent":
+            "font-semibold bg-slate-300 dark:bg-slate-800 text-slate-800 dark:text-slate-200 hocus:border-secondary-500 hocus:shadow-sm hocus:shadow-secondary-100 hocus:-mt-0.5 hocus:z-10 hocus:mb-0.5 border border-transparent":
               !isDisabled,
-            "bg-white text-gray-300": isDisabled,
-            "bg-accent-500": isSelected && !isToday,
-            "bg-accent-600 hover:bg-accent-500": isSelected && isToday,
+            "bg-white dark:bg-slate-200 text-gray-500 dark:text-gray-500": isDisabled,
+            "bg-secondary-500": isSelected && !isToday,
+            "bg-secondary-600 dark:bg-secondary-600 hover:bg-secondary-500": isSelected && isToday,
             "text-white": isSelected,
           }
         )
@@ -71,7 +71,7 @@ export default function DayButton({
         <p
           className={clsx(
             "font-semibold text-[0.55rem] leading-0 h-3 items-center flex",
-            { "text-white": isSelected, "text-accent-700": !isSelected }
+            { "text-white": isSelected, "text-secondary-700 dark:text-secondary-200": !isSelected }
           )}>
           {isToday && "TODAY"}
         </p>

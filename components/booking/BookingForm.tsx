@@ -8,6 +8,7 @@ import Spinner from "../Spinner"
 import type { ActionType } from "@/context/AvailabilityContext"
 import { useProvider } from "@/context/AvailabilityContext"
 import { formatLocalDate, formatLocalTime } from "@/lib/availability/helpers"
+import ThemeSwitch from "../ThemeSwitch"
 
 const locations = [
   {
@@ -51,7 +52,7 @@ export default function BookingForm() {
         }}>
         <Dialog.Title
           as="h3"
-          className="text-base font-semibold leading-6 text-gray-900">
+          className="text-base font-semibold leading-6 text-gray-900 dark:text-gray-100">
           Request appointment
         </Dialog.Title>
 
@@ -68,8 +69,8 @@ export default function BookingForm() {
         <input type="hidden" name="duration" value={duration} />
         <input type="hidden" name="timeZone" value={timeZone} />
 
-        <div className="border-l-4 border-l-accent-200 bg-accent-50/30 p-3 mt-3 mb-4 rounded-md">
-          <p className="text-sm md:text-base font-semibold text-accent-800">
+        <div className="border-l-4 border-l-secondary-400 bg-secondary-50/30 dark:bg-secondary-50/10 p-3 mt-3 mb-4 rounded-md">
+          <p className="text-sm md:text-base font-semibold text-secondary-800 dark:text-secondary-400">
             {dateString}
           </p>
           <p className="text-xs md:text-sm">
@@ -79,10 +80,10 @@ export default function BookingForm() {
 
         <div className="flex flex-col space-y-4">
           <div className="isolate -space-y-px rounded-md shadow-sm">
-            <div className="relative rounded-md rounded-b-none px-3 pt-2.5 pb-1.5 ring-1 ring-inset ring-gray-300 focus-within:z-10 focus-within:ring-2 focus-within:ring-accent-600">
+            <div className="relative rounded-md rounded-b-none px-3 pt-2.5 pb-1.5 ring-1 ring-inset ring-gray-300 focus-within:z-10 focus-within:ring-2 focus-within:ring-secondary-600">
               <label
                 htmlFor="name"
-                className="block text-xs font-medium text-gray-900">
+                className="block text-xs font-medium text-gray-900 dark:text-gray-100">
                 Name
               </label>
               <input
@@ -94,14 +95,14 @@ export default function BookingForm() {
                 aria-required
                 name="name"
                 id="name"
-                className="block w-full border-0 p-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                className="pl-2 py-1 block w-full border-0 p-0 text-gray-900 dark:text-gray-100 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                 placeholder="Jane Smith"
               />
             </div>
-            <div className="relative rounded-md rounded-t-none px-3 pt-2.5 pb-1.5 ring-1 ring-inset ring-gray-300 focus-within:z-10 focus-within:ring-2 focus-within:ring-accent-600">
+            <div className="relative rounded-md rounded-t-none px-3 pt-2.5 pb-1.5 ring-1 ring-inset ring-gray-300 focus-within:z-10 focus-within:ring-2 focus-within:ring-secondary-600">
               <label
                 htmlFor="email"
-                className="block text-xs font-medium text-gray-900">
+                className="block text-xs font-medium text-gray-900 dark:text-gray-100">
                 Email Address
               </label>
               <input
@@ -111,7 +112,7 @@ export default function BookingForm() {
                 type="email"
                 name="email"
                 id="email"
-                className="block w-full border-0 p-0 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                className="pl-2 py-1 block w-full border-0 p-0 text-gray-900 dark:text-gray-100 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                 placeholder="jsmith@gmail.com"
               />
             </div>
@@ -129,7 +130,7 @@ export default function BookingForm() {
                       type="radio"
                       value={location.value}
                       defaultChecked={location.value === locations[0].value}
-                      className="h-4 w-4 border-gray-300 text-accent-600 focus:ring-accent-600"
+                      className="h-4 w-4 border-gray-300 text-secondary-600 focus:ring-secondary-600"
                     />
                     <label
                       htmlFor={location.value}
@@ -162,7 +163,7 @@ export default function BookingForm() {
           </button>
           <button
             type="button"
-            className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+            className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hocus:bg-gray-100 sm:mt-0 sm:w-auto"
             onClick={() => {
               dispatch({ type: "SET_MODAL", payload: "closed" })
             }}>

@@ -51,7 +51,7 @@ export default function Calendar({
 
   return (
     <div
-      className="isolate mt-6 grid grid-cols-7 text-xs leading-6 text-gray-500"
+      className="isolate mt-6 grid grid-cols-7 text-xs leading-6 text-gray-500 dark:text-gray-400"
       role="grid"
       aria-label="Calendar">
       {weekdays.map((weekday) => (
