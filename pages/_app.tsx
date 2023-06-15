@@ -19,30 +19,31 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <ThemeProvider attribute="class" defaultTheme={theme}>
-      <Head>
-        <title>{`Meet with ${
-          process.env.NEXT_PUBLIC_OWNER_NAME ?? "me"
-        }`}</title>
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon-16x16.png"
-        />
-      </Head>
-      <style jsx global>{`
-        html {
-          font-family: ${public_sans.style.fontFamily};
-        }
-      `}</style>
-      
-        <ThemeSwitch />
+        <Head>
+          <title>{`Meet with ${
+            process.env.NEXT_PUBLIC_OWNER_NAME ?? "me"
+          }`}</title>
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png"
+          />
+        </Head>
+        <style jsx global>{`
+          html {
+            font-family: ${public_sans.style.fontFamily};
+          }
+        `}</style>
+        <nav className="w-screen flex justify-end pr-4 pt-4">
+          <ThemeSwitch />
+        </nav>
         <Component {...pageProps} />
       </ThemeProvider>
     </>
