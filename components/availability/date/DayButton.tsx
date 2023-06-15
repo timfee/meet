@@ -48,9 +48,9 @@ export default function DayButton({
             "font-semibold bg-slate-300 dark:bg-slate-800 text-slate-800 dark:text-slate-200 hocus:border-secondary-500 hocus:shadow-sm hocus:shadow-secondary-100 hocus:-mt-0.5 hocus:z-10 hocus:mb-0.5 border border-transparent":
               !isDisabled,
             "bg-white dark:bg-slate-200 text-gray-500 dark:text-gray-500": isDisabled,
-            "bg-secondary-500": isSelected && !isToday,
-            "bg-secondary-600 dark:bg-secondary-600 hover:bg-secondary-500": isSelected && isToday,
-            "text-white": isSelected,
+            // "bg-secondary-500": isSelected && !isToday,
+            // "bg-secondary-600 dark:bg-secondary-600 hover:bg-secondary-500": isSelected && isToday,
+            "text-white dark:text-gray-100 bg-secondary-500 dark:bg-secondary-600": isSelected,
           }
         )
       )}
