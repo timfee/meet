@@ -71,7 +71,7 @@ export default function DayButton({
         <p
           className={clsx(
             "font-semibold text-[0.55rem] leading-0 h-3 items-center flex",
-            { "text-white": isSelected, "text-secondary-700 dark:text-secondary-200": !isSelected }
+            { "text-white": isSelected, "text-secondary-700 dark:text-secondary-200": !isSelected, "text-gray-500 dark:text-gray-500": isDisabled }
           )}>
           {isToday && "TODAY"}
         </p>
