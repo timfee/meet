@@ -2,6 +2,8 @@ import type { AppProps } from "next/app"
 import { Public_Sans } from "next/font/google"
 import Head from "next/head"
 
+import { ThemeProvider } from 'next-themes'
+
 import "../styles/global.css"
 
 const public_sans = Public_Sans({
@@ -9,6 +11,8 @@ const public_sans = Public_Sans({
   weight: "variable",
   display: "swap",
 })
+
+const theme: string = "dark"
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -35,8 +39,9 @@ export default function App({ Component, pageProps }: AppProps) {
           font-family: ${public_sans.style.fontFamily};
         }
       `}</style>
-
-      <Component {...pageProps} />
+      <ThemeProvider defaultTheme={theme}>
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
   )
 }
