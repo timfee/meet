@@ -64,6 +64,7 @@ export default function Calendar({
         </div>
       ))}
       {days.map((day) => {
+        const availabilityTest = offers[day.toString()] ?? []
         return (
           <DayButton
             key={day.toString()}
@@ -72,6 +73,7 @@ export default function Calendar({
               openSlots: offers[day.toString()]?.length ?? 0,
               maximumAvailability,
             })}
+            hasAvailability={availabilityTest.length > 0}
           />
         )
       })}
