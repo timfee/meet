@@ -41,18 +41,6 @@ module.exports = {
         14: '3.5rem',
       },
       colors: {
-        accent: {
-          50: "#f3b8b4",
-          100: "#eeb5b4",
-          200: "#eba7a3",
-          300: "#e48a86",
-          400: "#db675c",
-          500: "#ce4336",
-          600: "#a53331",
-          700: "#882525",
-          800: "#732123",
-          900: "#661e23",
-        },
         primary: colors.green,
         secondary: colors.teal,
         gray: colors.neutral,
