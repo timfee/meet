@@ -74,7 +74,7 @@ export default function DayButton({
             {
               "text-white": isSelected,
               "text-gray-500 dark:text-gray-500": isDisabled && !isSelected,
-              "text-secondary-700 dark:text-secondary-200": !isSelected,
+              "text-secondary-700 dark:text-secondary-600": !isSelected,
             }
           )}>
           {isToday && "TODAY"}
