@@ -134,7 +134,7 @@ export default function BookingForm() {
                     />
                     <label
                       htmlFor={location.value}
-                      className="ml-1.5 block text-sm leading-6 text-gray-800">
+                      className="ml-1.5 block text-sm leading-6 text-gray-800 dark:text-gray-100">
                       {location.name}
                     </label>
                   </div>
