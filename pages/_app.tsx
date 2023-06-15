@@ -13,11 +13,12 @@ const public_sans = Public_Sans({
   display: "swap",
 })
 
-const theme: string = "dark"
+const theme = "system"
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
+      <ThemeProvider attribute="class" defaultTheme={theme}>
       <Head>
         <title>{`Meet with ${
           process.env.NEXT_PUBLIC_OWNER_NAME ?? "me"
@@ -40,7 +41,7 @@ export default function App({ Component, pageProps }: AppProps) {
           font-family: ${public_sans.style.fontFamily};
         }
       `}</style>
-      <ThemeProvider defaultTheme={theme}>
+      
         <ThemeSwitch />
         <Component {...pageProps} />
       </ThemeProvider>
