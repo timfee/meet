@@ -5,6 +5,7 @@ import Head from "next/head"
 import { ThemeProvider } from 'next-themes'
 
 import "../styles/global.css"
+import ThemeSwitch from "@/components/ThemeSwitch"
 
 const public_sans = Public_Sans({
   subsets: ["latin"],
@@ -40,6 +41,7 @@ export default function App({ Component, pageProps }: AppProps) {
         }
       `}</style>
       <ThemeProvider defaultTheme={theme}>
+        <ThemeSwitch />
         <Component {...pageProps} />
       </ThemeProvider>
     </>
