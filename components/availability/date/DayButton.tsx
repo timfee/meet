@@ -8,6 +8,7 @@ import Day from "@/lib/day"
 type DayProps = {
   date: Day
   availabilityScore: number
+  hasAvailability: boolean
 } & DetailedHTMLProps<
   ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
@@ -16,6 +17,7 @@ type DayProps = {
 export default function DayButton({
   date,
   availabilityScore,
+  hasAvailability,
   ...props
 }: DayProps): JSX.Element {
   const {
@@ -29,13 +31,11 @@ export default function DayButton({
 
   const isToday = date.toString() === now.toString()
 
-  const isOutOfRange = date < now || date > end || date < start
-
   const isSelected = selectedDate
     ? date.toString() === selectedDate.toString()
     : false
 
-  const isDisabled = isOutOfRange || availabilityScore === 0
+  const isDisabled = !hasAvailability
 
   return (
     <button

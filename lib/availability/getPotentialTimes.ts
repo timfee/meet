@@ -23,8 +23,8 @@ export default function getPotentialTimes({
 
   // Sort the slots by start time
   const days = eachDayOfInterval({
-    start: start.toInterval().start,
-    end: end.toInterval().end,
+    start: start.toInterval("Etc/GMT").start,
+    end: end.toInterval("Etc/GMT").end,
   })
   days.forEach((day) => {
     const dayOfWeek = day.getDay()
