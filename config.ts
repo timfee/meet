@@ -7,6 +7,7 @@ export const DEFAULT_DURATION = 30
 export const CALENDARS_TO_CHECK = ["primary"]
 export const SLOT_PADDING = 0
 export const OWNER_TIMEZONE = "America/Los_Angeles"
+export const LEAD_TIME = 0
 
 const DEFAULT_WORKDAY = [
   {

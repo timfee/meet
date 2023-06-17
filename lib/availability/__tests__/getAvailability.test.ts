@@ -1,3 +1,5 @@
+import { add, areIntervalsOverlapping, sub } from "date-fns"
+
 import type { DateTimeInterval } from "../../types"
 import getAvailability from "../getAvailability"
 
@@ -83,6 +85,34 @@ describe("getAvailability", () => {
       potential,
       busy,
       padding: 30,
+    })
+
+    expect(availableSlotsWithSomePadding).toHaveLength(0)
+  })
+
+  it("respects lead time when determining availability", () => {
+    const now = new Date()
+
+    const potential: DateTimeInterval[] = [
+      {
+        start: add(now, { minutes: 1 }),
+        end:   add(now, { hours: 1, minutes: 1 }),
+      },
+    ]
+
+    const busy: DateTimeInterval[] = []
+
+    const slotsWithLeadTimeConflict = getAvailability({
+      potential,
+      busy,
+      leadTime: 0
+    })
+    expect(slotsWithLeadTimeConflict.length).toBe(1)
+
+    const availableSlotsWithSomePadding = getAvailability({
+      potential,
+      busy,
+      leadTime: 15,
     })
 
     expect(availableSlotsWithSomePadding).toHaveLength(0)
